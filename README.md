@@ -2,16 +2,19 @@
 Bare-metal STM32 LED blinking example using direct register access (no HAL). Demonstrates RCC clock setup, GPIO configuration, and SysTick-based delay for stable timing and understanding low-level STM32 hardware behavior.
 
 📌 Overview
+
 This project demonstrates bare-metal programming on an STM32 microcontroller without using the HAL library.
 It configures the system clock, GPIO, and SysTick timer directly using registers to blink an LED connected to GPIOB Pin 7.
 
 The purpose of this repository is to:
+
 Understand STM32 hardware registers
 Learn clock configuration without HAL
 Implement accurate delays using SysTick
 Debug common bare-metal pitfalls (clock instability, SysTick misuse)
 
 🧠 Key Concepts Covered
+
 Direct RCC register programming
 Switching system clock to HSI (16 MHz)
 GPIO configuration using MODER, OTYPER, OSPEEDR, PUPDR
@@ -32,12 +35,15 @@ CMSIS startup files (default CubeIDE project)
 No HAL drivers required
 
 ⚙️ How It Works
+
 1️⃣ Clock Configuration
+
 MCU starts on MSI by default
 Code explicitly enables HSI (16 MHz) for stable timing
 SysTick reload value is calculated based on HSI frequency
 
 2️⃣ GPIO Configuration
+
 GPIOB clock enabled via RCC_AHB2ENR
 PB7 configured as:
 Output mode
@@ -46,6 +52,7 @@ Low speed
 Pull-up enabled
 
 3️⃣ SysTick Timer
+
 SysTick configured for 1 ms tick
 Delay implemented by polling COUNTFLAG in SysTick CTRL register
 
